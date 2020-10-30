@@ -1,0 +1,24 @@
+﻿@model D72TP1P3.Models.DataModels.Genre
+@using D72TP1P3.Models.DataModels
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Are you sure you want to delete the genre @Model.Name?</h3>
+<div>
+    <p>The following TvShows have this genre:</p>
+    <ul>
+        @foreach (TvShow tv in Model.TvShows) {
+           <li>@tv.Title</li>
+        }
+    </ul>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m=>m.GenreId)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

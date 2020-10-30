@@ -1,0 +1,1 @@
+jquery-validation-unobtrusive-bootstrap/dist/unobtrusive-bootstrap.js

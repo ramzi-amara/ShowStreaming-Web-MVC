@@ -1,0 +1,12 @@
+﻿@model D72TP1P3.Models.DataModels.Episode
+
+<div class="col-md-4 col-sm-6 col-12 mb-4">
+    <div class="card">
+        <img  src="@Model.Image" alt="@Model.S00E00Format" class="card-img-top mx-auto rounded" style="max-width:325px;max-height:180px;min-width:325px;min-height:180px;">
+        <div class="card-body text-center">
+            <h5 class="card-title">@Model.S00E00Format</h5>
+            @Html.ActionLink(linkText: "Edit", actionName: "Edit", controllerName: "Episodes", routeValues: new { area = "Gestion", id = Model.EpisodeId }, htmlAttributes: new { @class = "btn btn-primary disabled" })
+            @Html.ActionLink(linkText: "Delete", actionName: "Delete", controllerName: "Episodes", routeValues: new { area = "Gestion", id = Model.EpisodeId }, htmlAttributes: new { @class = "btn btn-danger" })
+        </div>
+    </div>
+</div>

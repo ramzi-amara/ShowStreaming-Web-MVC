@@ -1,0 +1,21 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.TvShow>
+@using D72TP1P3.Models.DataModels
+@{
+    ViewBag.Title = "Seasons";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (TvShow tvShow in Model) {
+    <div class="row">
+        <div class="col-12"><h1>@tvShow.Title</h1></div>
+
+        @foreach (Season season in tvShow.Seasons) {
+            @Html.DisplayFor(m => season)
+        }
+    </div>
+}

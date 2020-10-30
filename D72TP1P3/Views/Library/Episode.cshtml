@@ -1,0 +1,61 @@
+﻿@model D72TP1P3.Models.DataModels.Episode
+@using D72TP1P3.Models.DataModels;
+
+@{
+    ViewBag.Title = @Model.Title;
+    TVShowDb tdb = new TVShowDb();
+}
+
+@using (Html.BeginForm("Episode", "Library", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div style="padding-top:50px"></div>
+    <div class="container body-content">
+        <div class="row mb-4">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.EpisodeId)
+            <div class="col-5">
+                <a href="ViewEpisode?EpisodeId=@Model.EpisodeId">
+                    <img src="@Model.Image" alt="@Model.Title" class="img-rounded" style="height:300px; width:450px">
+                </a>
+            </div>
+            <div class="col-7">
+                <div class="row">
+                    <div class="col-12">
+                       <a href="TvShow?IdTvShow=@Model.SeasonId"><h1>@Html.DisplayFor(model => model.Season.TvShow.Title)</h1></a>
+                        @Html.ValidationMessageFor(model => model.Season.ShortSeasonName, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="col-12">
+                        <h3>
+                            <a href="Season?SaisonId=@Model.SeasonId">@Html.DisplayFor(model => model.Season.ShortSeasonName)</a>
+                            @Html.ValidationMessageFor(model => model.Season.ShortSeasonName, "", new { @class = "text-danger" })
+                            <span>-</span>
+                            <span>@Html.DisplayFor(model => model.E00Format)</span>
+                            @Html.ValidationMessageFor(model => model.E00Format, "", new { @class = "text-danger" })
+                            <span>-</span>
+                            <span>@Html.DisplayFor(model => model.Title)</span>
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+
+                        </h3>
+                    </div>
+                    <div class="col-2">
+                        <p>@Html.DisplayFor(model => model.Runtime) min</p>
+                        @Html.ValidationMessageFor(model => model.Runtime, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-10">
+                        <p>@Html.DisplayFor(model => model.Season.TvShow.TVParentalGuideline)</p>
+                        @Html.ValidationMessageFor(model => model.Season.TvShow.TVParentalGuideline, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-12">
+                        <p>@Html.DisplayFor(model => model.Plot)</p>
+                        @Html.ValidationMessageFor(model => model.Plot, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+}
+

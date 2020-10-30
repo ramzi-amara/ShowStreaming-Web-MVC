@@ -1,0 +1,72 @@
+﻿<style>
+    a {
+        font-weight:bold;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:orange">
+    <a class="navbar-brand" style="font-weight:bold" href="/">Crunchyroll Dollorama</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a style="font-weight:bold;" class="nav-link" href="/Users/SignUp">@D72TP1P3.Resources.Menu.SignUp</a>
+                </li>
+                <li class="nav-item">
+                    <a style="font-weight:bold;" class="nav-link" href="/Users/Login">@D72TP1P3.Resources.Menu.Login</a>
+                </li>
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                    <a style="font-weight:bold;" class="nav-link" href="/Users/Edit">@D72TP1P3.Resources.Menu.Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a style="font-weight:bold;" class="nav-link" href="/Users/Logout">@D72TP1P3.Resources.Menu.Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a style="font-weight:bold;" class="nav-link" href="/Users/ListFavorite">@D72TP1P3.Resources.Menu.FavoriteShows</a>
+                </li>
+                <li class="nav-item">
+                    <a style="font-weight:bold;" class="nav-link" href="/Users/History">@D72TP1P3.Resources.Menu.History</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a style="font-weight:bold;" class="nav-link" href="/Library/Index">Library</a>
+                </li>
+
+                <li class="nav-item">
+                </li>
+                if (User.IsInRole("Administrator"))
+                {
+                    <li class="nav-item">
+                        @Html.ActionLink(linkText: "Gestion", actionName: "Index", controllerName: "Home", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menutvshows" })
+                    </li>
+                }
+
+
+            }
+            @if (Culture != "fr")
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/ChangeLanguage?lang=fr">fr</a>
+                </li>
+            }
+            @if (Culture == "fr")
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/ChangeLanguage?lang=en">en</a>
+                </li>
+            }
+
+        </ul>
+    </div>
+</nav>

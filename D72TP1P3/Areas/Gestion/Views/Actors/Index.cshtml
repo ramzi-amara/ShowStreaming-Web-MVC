@@ -1,0 +1,17 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.Actor>
+@using D72TP1P3.Models.DataModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="row">
+    @foreach (var item in Model) {
+        @Html.DisplayFor(model => item)
+    }
+</div>

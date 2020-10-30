@@ -1,0 +1,26 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.Episode>
+@using D72TP1P3.Models.DataModels
+@{
+    /**/
+
+    ViewBag.Title = "Season";
+    TVShowDb bd = new TVShowDb();
+    User user = bd.Users.Find(int.Parse(User.Identity.Name));
+
+}
+<div style="padding-top:30px"></div>
+<h2>@D72TP1P3.Resources.Models.StringEpisodes.Episodes</h2>
+<div style="padding-top:30px"></div>
+
+<div class="row">
+    @if (user.Favorites.ToList().Count() == 0)
+    {
+        <h2>@D72TP1P3.Resources.historystring.YouShouldViewAnEpisode</h2>
+    }
+    @foreach (Episode e in Model)
+    {
+        @Html.DisplayFor(var => e);
+    }
+</div>
+
+

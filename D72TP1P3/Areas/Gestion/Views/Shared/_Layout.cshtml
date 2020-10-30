@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body >
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:orange">
+        <a style="color:black" class="navbar-brand" href="#">Library</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    @Html.ActionLink(linkText: "Home", actionName: "Index", controllerName: "Home", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menuhome" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink(linkText: "Actors", actionName: "Index", controllerName: "Actors", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menuactors" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink(linkText: "Episodes", actionName: "Index", controllerName: "Episodes", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menuepisodes" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink(linkText: "Genres", actionName: "Index", controllerName: "Genres", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menugenres" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink(linkText: "Seasons", actionName: "Index", controllerName: "Seasons", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menuseasons" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink(linkText: "Studios", actionName: "Index", controllerName: "Studios", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menustudios" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink(linkText: "TvShows", actionName: "Index", controllerName: "TvShows", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menutvshows" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink(linkText: "Profil", actionName: "Index", controllerName: "Users", routeValues: new { area = "Gestion" }, htmlAttributes: new { @class = "nav-link", id = "menutvshows" })
+                </li>
+                <li class="nav-item">
+                    <a style="font-weight:bold;" class="nav-link" href="/Library/Index">CrunchyRoll</a>
+                </li>
+
+                @RenderSection(name: "Menu", required: false)
+                @{
+                    var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+                }
+
+            </ul>
+            <script>
+                var controllerName = "@controllerName";
+                var menu = ("menu" + controllerName).toLowerCase();
+                document.getElementById(menu).classList.add("active");
+            </script>
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy;</p>
+        </footer>
+
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/unobtrusive-bootstrap.js"></script>
+</body>
+</html>

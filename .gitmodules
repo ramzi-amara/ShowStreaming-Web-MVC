@@ -1,0 +1,3 @@
+[submodule "D72TP1P3/Scripts/jquery-validation-unobtrusive-bootstrap"]
+	path = D72TP1P3/Scripts/jquery-validation-unobtrusive-bootstrap
+	url = https://github.com/brecons/jquery-validation-unobtrusive-bootstrap

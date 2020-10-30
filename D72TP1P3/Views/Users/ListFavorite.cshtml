@@ -1,0 +1,20 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.TvShow>
+@using D72TP1P3.Models.DataModels;
+
+@{
+    ViewBag.Title = "ListFavorite";
+    TVShowDb bd = new TVShowDb();
+    User user = bd.Users.Find(int.Parse(User.Identity.Name));
+}
+
+<h2>Favorite</h2>
+
+<div class="row">
+    @if (user.Favorites.ToList().Count() == 0) {
+        <h2>@D72TP1P3.Resources.Views.FavoriteShow.YouDoNotHaveAnyFavorite</h2>
+    }
+    @foreach (var tv in Model)
+    {
+        @Html.DisplayFor(a => tv)
+    }
+</div>

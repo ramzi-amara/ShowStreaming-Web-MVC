@@ -1,0 +1,12 @@
+﻿@model D72TP1P3.Models.DataModels.TvShow
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+    <div class="card">
+        <img class="card-img-top mx-auto rounded" style="max-width:250px;max-height:375px;min-width:250px;min-height:375px;" src="@Model.Image" alt="@Model.Title">
+        <div class="card-body text-center">
+            <h5 class="card-title" style="min-height:50px;max-height:50px;">@Model.Title</h5>
+            @Html.ActionLink(linkText: "Edit", actionName: "Edit", controllerName: "TvShows", routeValues: new { area = "Gestion", id = Model.TvShowId }, htmlAttributes: new { @class = "btn btn-primary disabled" })
+            @Html.ActionLink(linkText: "Delete", actionName: "Delete", controllerName: "TvShows", routeValues: new { area = "Gestion", id = Model.TvShowId }, htmlAttributes: new { @class = "btn btn-danger disabled" })
+        </div>
+    </div>
+</div>

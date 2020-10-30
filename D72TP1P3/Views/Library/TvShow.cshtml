@@ -1,0 +1,66 @@
+﻿@model D72TP1P3.Models.DataModels.TvShow
+
+@{
+    ViewBag.Title = "TvShow";
+}
+<style>
+    @@media only screen and (max-width: 1000px){
+        img{
+            width:200px;
+        }
+    }
+</style>
+<div class="row mb-4">
+    <div class="col-5">
+        <img src="@Model.Image" width="450" alt="@Model.Title"/>
+    </div>
+    <div class="col-7">
+        <div class="row">
+            <div class="col-11">
+                <h2 style="color:white">@Model.Title</h2>
+            </div>
+            <div class="col-1">
+
+            </div>
+            <h5 style="color:white" class="col-12">@Model.Year</h5>
+            <div class="col-3">
+                <p style="color:white">@Model.EpisodeCount épisodes</p>
+            </div>
+            <div class="col-2">
+                <p style="color:white">@Model.TVParentalGuideline</p>
+            </div>
+            <div class="col-7">
+                @foreach (var g in Model.Genres) {
+                    <a href="/Library/Index?FiltreGenre=@g.GenreId">@g.Name</a>
+                }
+            </div>
+            <div style="color:white" class="col-2">Studio</div>
+            <div class="col-10">
+                <p>
+                    <a href="/Library/Index?FiltreStudio=@Model.StudioId">@Model.Studio.Name</a>
+                </p>
+            </div>
+            <div class="col-12 text-justify">
+                <p style="color:white">@Model.Plot</p>
+            </div>
+            <div class="panel-footer">
+                <a style="background-color:orange" class="btn btn-primary" href="/Users/Favorite?IdTvShow=@Model.TvShowId">Add to favorite</a>
+                <a class="btn btn-danger" href="/Users/DeleteFavorite?IdTvShow=@Model.TvShowId">Remove from Favorite</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    @foreach (var r in Model.Roles)
+    {
+        @Html.DisplayFor(a => r)
+    }
+</div>
+<div class="row">
+    @foreach (var s in Model.Seasons)
+    {
+        @Html.DisplayFor(a => s)
+    }
+
+</div>
+

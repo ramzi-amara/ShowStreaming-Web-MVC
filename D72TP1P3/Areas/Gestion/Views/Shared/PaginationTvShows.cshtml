@@ -1,0 +1,43 @@
+﻿@if (ViewBag.TotalPages > 1) {
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end">
+            @if (ViewBag.Page == 1) {
+                @*Previous est désactivé sur la première page*@
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+            }
+            else {
+                <li class="page-item">
+                    <a class="page-link" href="/Gestion/TvShows/Index?Page=@(ViewBag.Page - 1)" tabindex="-1">Previous</a>
+                </li>
+            }
+            @*Générer les liens*@
+            @for (int i = 1; i <= ViewBag.TotalPages; i++) {
+                @*Marquer la page active*@
+                if (i == ViewBag.Page) {
+                    <li class="page-item active">
+                        <a class="page-link" href="/Gestion/TvShows/Index?Page=@i">@i</a>
+                    </li>
+                }
+                else {
+                    <li class="page-item">
+                        <a class="page-link" href="/Gestion/TvShows/Index?Page=@i">@i</a>
+                    </li>
+                }
+            }
+
+            @if (ViewBag.Page == ViewBag.TotalPages) {
+                //Next est désactivé sur la denière page
+                <li class="page-item disabled">
+                    <a class="page-link">Next</a>
+                </li>
+            }
+            else {
+                <li class="page-item">
+                    <a class="page-link" href="/Gestion/TvShows/Index?Page=@(ViewBag.Page + 1)">Next</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

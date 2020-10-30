@@ -1,0 +1,14 @@
+﻿@model D72TP1P3.Models.DataModels.TvShow
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+    <a href="/Library/TvShow?IdTvShow=@Model.TvShowId">
+        <div style="background-color:orange" class="card rounded">
+            <img width="250" height="300" src="@Model.Image" alt="@Model.Title" />
+            <div class="card-body text-center">
+                <h4 style="color:black">@Model.Title</h4>
+                <p style="color:black">@Model.Seasons.Count @D72TP1P3.Resources.Models.StringTvShow.Season</p>
+            </div>
+        </div>
+    </a>
+</div>
+<div style="padding"></div>

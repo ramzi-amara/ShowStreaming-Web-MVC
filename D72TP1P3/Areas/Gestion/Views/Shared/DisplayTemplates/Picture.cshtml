@@ -1,0 +1,12 @@
+﻿@model string
+@{
+    string NomPropriete = ViewData.ModelMetadata.ContainerType
+                          .GetProperty(ViewData.ModelMetadata.PropertyName)
+                          .Name;
+    var htmlAttributes = ViewData["htmlAttributes"];
+    IDictionary<string, object> dic = new RouteValueDictionary(htmlAttributes);
+    var classes = dic["class"];
+    var styles = dic["styles"];
+}
+
+<img src="@Model" id="@NomPropriete" name="@NomPropriete" class="@classes" style="@styles" />

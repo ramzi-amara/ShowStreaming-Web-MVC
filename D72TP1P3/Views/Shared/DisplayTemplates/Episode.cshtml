@@ -1,0 +1,18 @@
+﻿@model D72TP1P3.Models.DataModels.Episode
+
+@{
+    ViewBag.Title = D72TP1P3.Resources.Models.StringEpisodes.Episodes;
+}
+
+<div class="col-md-4 col-sm-6 col-12 mb-4">
+    <a href="/Library/Episode?EpisodeId=@Model.EpisodeId">
+        <div style="background-color:orange" class="card">
+            <img class="card-img-top mx-auto rounded" style="max-width:325px;max-height:180px;min-width:325px;min-height:180px;" src="@Model.Image">
+            <div class="card-body text-center">
+                <h5 style="color:black" class="card-title">@Model.Title</h5>
+                <p style="color:black">@D72TP1P3.Resources.Models.StringEpisodes.Episode @Model.Number</p>
+            </div>
+        </div>
+    </a>
+</div>
+

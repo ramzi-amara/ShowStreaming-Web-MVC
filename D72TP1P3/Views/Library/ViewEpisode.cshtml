@@ -1,0 +1,39 @@
+﻿@model D72TP1P3.Models.DataModels.Episode
+@using D72TP1P3.Models.DataModels;
+
+@{
+    ViewBag.Title = @Model.Title;
+    TVShowDb tdb = new TVShowDb();
+}
+
+
+@using (Html.BeginForm("ViewEpisode", "Library", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    if (User.Identity.IsAuthenticated)
+    {
+        User user = tdb.Users.Find(int.Parse(this.User.Identity.Name));
+        if (user.Type == D72TP1P3.Models.DataModels.User.UserType.Donator || user.Type == D72TP1P3.Models.DataModels.User.UserType.Administrator)
+        {
+            <div class="container body-content">
+                <video src="@Model.Video" controls style="min-width:1000px;">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        }
+        else
+        {
+            {
+                <h1 class="text-danger">YOU HAVE TO BE A DONATOR MEMBER</h1>
+            }
+        }
+    }
+    else
+    {
+        <h1 class="text-danger">YOU HAVE TO BE A DONATOR MEMBER</h1>
+    }
+
+
+}
+
+
+

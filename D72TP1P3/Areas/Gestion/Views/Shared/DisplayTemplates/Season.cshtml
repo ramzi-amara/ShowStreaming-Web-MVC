@@ -1,0 +1,12 @@
+﻿@model D72TP1P3.Models.DataModels.Season
+
+<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+    <div class="card">
+        <img class="card-img-top mx-auto rounded" style="max-width:250px;max-height:375px;min-width:250px;min-height:375px;" src="@Model.Image" alt="S@(Model.Number)">
+        <div class="card-body text-center">
+            <h5 class="card-title">S@(Model.Number)</h5>
+            @Html.ActionLink(linkText: "Edit", actionName: "Edit", controllerName: "Seasons", routeValues: new { area = "Gestion", id = Model.TvShowId }, htmlAttributes: new { @class = "btn btn-primary" })
+            @Html.ActionLink(linkText: "Delete", actionName: "Delete", controllerName: "Seasons", routeValues: new { area = "Gestion", id = Model.TvShowId }, htmlAttributes: new { @class = "btn btn-danger" })
+        </div>
+    </div>
+</div>

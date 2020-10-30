@@ -1,0 +1,11 @@
+﻿@model HttpPostedFileBase
+@{
+    string NomPropriete = ViewData.ModelMetadata.ContainerType
+                          .GetProperty(ViewData.ModelMetadata.PropertyName)
+                          .Name;
+}
+<input type="file" id="@NomPropriete" name="@NomPropriete" class="form-control" />
+<script>
+     var id = "@NomPropriete";
+     document.getElementById(id).closest("form").setAttribute("enctype", "multipart/form-data")
+</script>

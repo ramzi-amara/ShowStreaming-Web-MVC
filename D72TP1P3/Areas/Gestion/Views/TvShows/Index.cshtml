@@ -1,0 +1,12 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.TvShow>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    @foreach (var item in Model) {
+        @Html.DisplayFor(model => item)
+    }
+</div>
+@Html.Partial("PaginationTvShows")

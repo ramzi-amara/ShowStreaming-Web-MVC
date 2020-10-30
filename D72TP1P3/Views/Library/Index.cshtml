@@ -1,0 +1,38 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.TvShow>
+@using D72TP1P3.Models.DataModels;
+
+@{
+    ViewBag.Title = "Séries";
+}
+
+
+
+
+
+<div style="padding-top:30px"></div>
+<div class="well well-sm">
+    <form class="form-inline" action="/Library/Index" method="get">
+        <div class="form-group" style="padding:10px">
+            <label style="color:orange; font-weight:bold; padding:10px" for="FiltreTitle">@D72TP1P3.Resources.Filtre.Title : </label>
+            <input type="text" class="form-control" id="FiltreTitle" name="FiltreTitle" value="@ViewBag.FiltreTitle" placeholder="@D72TP1P3.Resources.Filtre.Title" />
+        </div>
+        <div class="form-group" style="10px">
+            <label style="color:orange; font-weight:bold; padding:10px" for="FiltreGenre">Genre : </label>
+            @Html.DropDownList("FiltreGenre", new SelectList(new TVShowDb().Genres.ToList(), "GenreId", "Name"), string.Empty, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group" style="padding:10px">
+            <label style="color:orange; font-weight:bold; padding:10px" for="FiltreStudio">Studio : </label>
+            @Html.DropDownList("FiltreStudio", new SelectList(new TVShowDb().Studios.ToList(), "StudioId", "Name"), string.Empty, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group" style="padding:10px">
+            <button type="submit" style="background-color:orange; padding:10px" class="btn btn-primary">@D72TP1P3.Resources.Menu.Filter</button>
+        </div>
+    </form>
+</div>
+<div style="padding-top:30px"></div>
+<div class="row">
+    @foreach (var tv in Model)
+    {
+        @Html.DisplayFor(a => tv)
+    }
+</div>

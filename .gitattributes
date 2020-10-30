@@ -1,0 +1,26 @@
+###############################################################################
+# Set default behavior for command prompt diff.
+#
+# This is need for earlier builds of msysgit that does not have it on by
+# default for csharp files.
+# Note: This is only used by command line
+###############################################################################
+*.cs     diff=csharp
+
+###############################################################################
+# behavior for image files
+###############################################################################
+*.jpg   binary
+*.png   binary
+*.gif   binary
+*.svg   binary
+
+###############################################################################
+# behavior for other file types
+###############################################################################
+*.mdf   binary
+*.woff2   binary
+*.eot   binary
+*.ttf   binary
+*.woff   binary
+*.ldf	binary

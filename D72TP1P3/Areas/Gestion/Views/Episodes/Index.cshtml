@@ -1,0 +1,25 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.TvShow>
+@using D72TP1P3.Models.DataModels
+@{
+    ViewBag.Title = "Index";
+    TVShowDb db = new TVShowDb();
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (TvShow tvShow in Model) {
+    <div class="row">
+        @foreach (Season season in tvShow.Seasons) {
+            <div class="col-12">
+                <h1>@(tvShow.Title) - @(season.ShortSeasonName)</h1>
+            </div>
+            foreach (Episode episode in season.Episodes) {
+                @Html.DisplayFor(m => episode)
+            }
+        }
+    </div>
+}

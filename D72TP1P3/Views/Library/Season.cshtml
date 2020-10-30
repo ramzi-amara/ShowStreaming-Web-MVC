@@ -1,0 +1,22 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.Episode>
+@using D72TP1P3.Models.DataModels
+@{
+    /**/
+
+    ViewBag.Title = "Season";
+
+}
+<div style="padding-top:30px"></div>
+<h2 style="font-weight:bold">@D72TP1P3.Resources.Models.StringEpisodes.Episodes</h2>
+<div style="padding-top:30px"></div>
+
+<div class="row">
+    @foreach (var e in Model)
+    {
+        @Html.DisplayFor(var => e);
+    }
+</div>
+@Html.Partial("PaginationEpisode")
+
+
+

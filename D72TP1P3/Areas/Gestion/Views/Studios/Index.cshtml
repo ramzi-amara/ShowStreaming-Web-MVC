@@ -1,0 +1,33 @@
+﻿@model IEnumerable<D72TP1P3.Models.DataModels.Studio>
+@using D72TP1P3.Models.DataModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", routeValues: new { id = item.StudioId })
+                @Html.ActionLink("Delete", "Delete", routeValues: new { id = item.StudioId })
+            </td>
+        </tr>
+    }
+
+</table>
